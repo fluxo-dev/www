@@ -1,0 +1,20 @@
+base_url = "https://fluxo.dev"
+title = "fluxo.dev"
+build_search_index = true
+compile_sass = true
+minify_html = true
+generate_feed = true
+taxonomies = [
+    { name = "authors" },
+    { name = "tags" },
+]
+
+[markdown]
+highlight_code = true
+highlight_theme = "solarized-light"
+smart_punctuation = true
+external_links_no_follow = true
+
+[extra]
+copyright_info = "Anu Sharma & Ramnath R Iyer"
+description = "fluxo is a general-purpose neural interface"

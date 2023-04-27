@@ -1,0 +1,300 @@
+@font-face {
+    font-family: "Gentium Plus";
+    src: url("/fonts/GentiumPlus-Regular.eot");
+    src: url("/fonts/GentiumPlus-Regular.eot?#iefix") format('embedded-opentype'),
+        url("/fonts/GentiumPlus-Regular.woff2") format('woff2'),
+        url("/fonts/GentiumPlus-Regular.woff") format('woff'),
+        url("/fonts/GentiumPlus-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gentium Plus";
+    src: url("/fonts/GentiumPlus-Italic.eot");
+    src: url("/fonts/GentiumPlus-Italic.eot?#iefix") format('embedded-opentype'),
+        url("/fonts/GentiumPlus-Italic.woff2") format('woff2'),
+        url("/fonts/GentiumPlus-Italic.woff") format('woff'),
+        url("/fonts/GentiumPlus-Italic.ttf") format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Gentium Plus";
+    src: url("/fonts/GentiumPlus-Bold.eot");
+    src: url("/fonts/GentiumPlus-Bold.eot?#iefix") format('embedded-opentype'),
+        url("/fonts/GentiumPlus-Bold.woff2") format('woff2'),
+        url("/fonts/GentiumPlus-Bold.woff") format('woff'),
+        url("/fonts/GentiumPlus-Bold.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gentium Plus";
+    src: url("/fonts/GentiumPlus-BoldItalic.eot");
+    src: url("/fonts/GentiumPlus-BoldItalic.eot?#iefix") format('embedded-opentype'),
+        url("/fonts/GentiumPlus-BoldItalic.woff2") format('woff2'),
+        url("/fonts/GentiumPlus-BoldItalic.woff") format('woff'),
+        url("/fonts/GentiumPlus-BoldItalic.ttf") format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    src: url("/fonts/FiraMono-Regular.eot");
+    src: url("/fonts/FiraMono-Regular.eot?#iefix") format('embedded-opentype'),
+        url("/fonts/FiraMono-Regular.woff2") format('woff2'),
+        url("/fonts/FiraMono-Regular.woff") format('woff'),
+        url("/fonts/FiraMono-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --font-content: "Gentium Plus", serif;
+    --font-mono: "Fira Mono", monospace;
+    --line-width: 1px;
+    --spacing: 0.5em;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --fore-color: #202020;
+        --back-color: #eeeeee;
+        --banner-color: #fcddbc;
+        --line-color: #ccccdd;
+        --link-color: #800000;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fore-color: #cbe4de;
+        --back-color: #2c3333;
+        --banner-color: #2e4f4f;
+        --line-color: #444444;
+        --link-color: #78d0de;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body,
+ul,
+ol,
+li {
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: var(--fore-color);
+    background-color: var(--back-color);
+}
+
+ul,
+ol {
+    list-style-position: inside;
+    padding: var(--spacing) 0;
+}
+
+li {
+    margin-left: var(--spacing);
+    padding-left: var(--spacing);
+}
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:active {
+    color: var(--link-color);
+    outline: none;
+    text-decoration: none;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-content);
+    margin: auto;
+    max-width: 800px;
+    padding: 0 calc(var(--spacing) * 2);
+}
+
+.header {
+    align-items: center;
+    column-gap: var(--spacing);
+    display: flex;
+    justify-content: stretch;
+    padding: calc(var(--spacing) * 2) 0;
+
+    .banner {
+        height: 60px;
+        user-select: none;
+    }
+}
+
+.search {
+    border: var(--line-width) solid transparent;
+    border-top-color: var(--line-color);
+    display: inline-block;
+    padding: var(--spacing) 0;
+    position: relative;
+
+    input[type="search"] {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        display: none;
+    }
+
+    .search-box {
+        color: var(--fore-color);
+        background-color: var(--back-color);
+        border: var(--line-width) solid var(--line-color);
+        outline: none;
+        padding: var(--spacing);
+        width: 100%;
+    }
+
+    .search-results {
+        background-color: var(--back-color);
+        box-shadow: inset 0 0 3px 1px var(--line-color);
+        display: none;
+        line-height:2em;
+        padding: var(--spacing);
+        overflow: auto;
+        max-height: 400px;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        z-index: 10;
+
+        .search-results-items {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            li {
+                padding: 0;
+                margin: 0;
+            }
+
+            .search-results-item {
+                .search-results-item-title {
+                    background-color: var(--banner-color);
+                    padding: calc(var(--spacing));
+                }
+
+                .search-results-item-snippet {
+                    padding: calc(var(--spacing));
+                    padding-bottom: calc(var(--spacing) * 2);
+                }
+            }
+        }
+    }
+}
+
+.content {
+    border: var(--line-width) solid transparent;
+    border-top-color: var(--line-color);
+    padding: calc(var(--spacing) * 2) var(--spacing);
+
+    .page-title {
+        font-size: x-large;
+        padding: var(--spacing) 0;
+    }
+
+    .page-banner {
+        background-color: var(--banner-color);
+        padding-left: var(--spacing);
+        padding-right: var(--spacing);
+    }
+
+    .post-title {
+        font-size: x-large;
+        padding: var(--spacing) 0;
+    }
+
+    .post-date {
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing) 0;
+    }
+
+    .post-authors,
+    .post-tags {
+        column-gap: var(--spacing);
+        display: flex;
+
+        a {
+            display: inline-block;
+        }
+    }
+
+    .post-content {
+        font-size: 1.1em;
+        line-height: 1.8em;
+        hyphens: auto;
+        padding: calc(var(--spacing) * 2) 0;
+        text-align: justify;
+    }
+
+    .post-rule {
+        border-top: var(--line-width) solid transparent;
+        border-top-color: var(--line-color);
+        margin: calc(var(--spacing) * 2) 0;
+
+        &:last-of-type {
+            display: none;
+        }
+    }
+
+    .msgbox {
+        display: flex;
+        flex-direction: column;
+
+        .msg {
+            font-style: italic;
+            padding-top: calc(var(--spacing) * 4);
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 3em;
+            padding-top: var(--spacing);
+            text-align: center;
+        }
+    }
+
+    .lstbox {
+        margin-top: calc(var(--spacing) * 2);
+    }
+
+}
+
+.footer {
+    border: var(--line-width) solid transparent;
+    border-top-color: var(--line-color);
+    padding: calc(var(--spacing) * 2) 0;
+    text-align: center;
+}
+
+.tag {
+    font-family: var(--font-mono);
+}

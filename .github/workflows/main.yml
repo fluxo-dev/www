@@ -1,0 +1,32 @@
+name: Publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+ id-token: write
+ contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: configure
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::344620664575:role/Builder
+          aws-region: us-west-2
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: build-package
+        uses: shalzz/zola-deploy-action@master
+        env:
+          BUILD_ONLY: true
+      - name: deploy-package
+        run: |
+          aws s3 sync public/ s3://fluxo-dev-website-assets --delete --cache-control max-age=86400
+          aws cloudfront create-invalidation --distribution-id E13ENIEO38NQCH --paths '/*'
