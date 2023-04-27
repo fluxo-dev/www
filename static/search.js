@@ -129,7 +129,8 @@ function formatSearchResultItem(item, terms) {
 }
 
 function initSearch() {
-    var $searchInput = document.getElementById("search-box");
+    var $search = document.getElementById("search");
+    var $searchBox = document.getElementById("search-box");
     var $rest = document.querySelector(".content");
     var $searchResults = document.querySelector(".search-results");
     var $searchResultsItems = document.querySelector(".search-results-items");
@@ -145,8 +146,8 @@ function initSearch() {
     var currentTerm = "";
     var index = elasticlunr.Index.load(window.searchIndex);
 
-    $searchInput.addEventListener("keyup", debounce(function () {
-        var term = $searchInput.value.trim();
+    $searchBox.addEventListener("keyup", debounce(function () {
+        var term = $searchBox.value.trim();
         if (term === currentTerm || !index) {
             return;
         }
@@ -173,6 +174,8 @@ function initSearch() {
             $searchResultsItems.appendChild(item);
         }
     }, 150));
+
+    $search.style.display = 'inline-block';
 }
 
 
