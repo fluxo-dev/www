@@ -63,6 +63,7 @@
 @media (prefers-color-scheme: light) {
     :root {
         --fore-color: #202020;
+        --fore-color-filter: invert(6%) sepia(22%) saturate(0%) hue-rotate(346deg) brightness(105%) contrast(87%);
         --back-color: #eeeeee;
         --banner-color: #fcddbc;
         --line-color: #ccccdd;
@@ -73,6 +74,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --fore-color: #cbe4de;
+        --fore-color-filter: invert(92%) sepia(21%) saturate(155%) hue-rotate(113deg) brightness(96%) contrast(88%);
         --back-color: #2c3333;
         --banner-color: #2e4f4f;
         --line-color: #444444;
@@ -147,6 +149,7 @@ blockquote {
 
     .banner {
         height: 60px;
+        -webkit-user-select: none;
         user-select: none;
     }
 }
@@ -161,6 +164,7 @@ blockquote {
     input[type="search"] {
         -moz-appearance: none;
         -webkit-appearance: none;
+        appearance: none;
     }
 
     input[type="search"]::-webkit-search-decoration,
@@ -221,6 +225,26 @@ blockquote {
     border-top-color: var(--line-color);
     padding: calc(var(--spacing) * 2) var(--spacing);
 
+    p {
+        img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            filter: var(--fore-color-filter);
+        }
+
+        img + em {
+            display: block;
+            padding: var(--spacing) 0;
+            text-align: center;
+
+            &::before {
+                content: 'Figure: ';
+                font-weight: bolder;
+            }
+        }
+    }
+
     .page-title {
         font-size: x-large;
         padding: var(--spacing) 0;
@@ -256,6 +280,7 @@ blockquote {
     .post-content {
         font-size: 1.1em;
         line-height: 1.8em;
+        -webkit-hyphens: auto;
         hyphens: auto;
         padding: calc(var(--spacing) * 2) 0;
         text-align: justify;
