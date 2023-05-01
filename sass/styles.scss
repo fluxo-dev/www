@@ -225,6 +225,16 @@ blockquote {
     border-top-color: var(--line-color);
     padding: calc(var(--spacing) * 2) var(--spacing);
 
+    h1, h2 {
+        font-size: 1.2em;
+        font-weight: normal;
+        padding-bottom: calc(var(--spacing) / 2);
+    }
+
+    h2 {
+        font-style: italic;
+    }
+
     p {
         img {
             display: block;
@@ -315,6 +325,14 @@ blockquote {
 
     .lstbox {
         margin-top: calc(var(--spacing) * 2);
+    }
+
+    .footnote-definition {
+        font-size: smaller;
+        p {
+            display: inline;
+            margin: 0 var(--spacing);
+        }
     }
 
 }
