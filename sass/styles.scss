@@ -220,6 +220,28 @@ blockquote {
     }
 }
 
+.nav-content {
+    border: var(--line-width) solid transparent;
+    border-top-color: var(--line-color);
+    column-gap: calc(4 * var(--spacing));
+    display: flex;
+    justify-content: stretch;
+    padding: calc(var(--spacing) * 2) var(--spacing);
+
+    .older, .newer {
+        font-family: var(--font-mono);
+    }
+
+    .older {
+        text-align: right;
+        flex: 1;
+    }
+
+    .newer {
+        text-align: left;
+    }
+}
+
 .content {
     border: var(--line-width) solid transparent;
     border-top-color: var(--line-color);
