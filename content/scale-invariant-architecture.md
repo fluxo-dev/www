@@ -13,7 +13,7 @@ Machine learning (ML) models are currently disrupting conventional software. In 
 ![Sierpinski Triangle Evolution](/sierpinski_fractal.svg)
 *Sierpinski Triangle Evolution*
 
-In my next post, I will follow up with a summary of related papers Hewitt, C. (2010)[^1] and Agha, G. (1986)[^2], along with implications on how the actor model should be adapted for operating ML models.
+In [my next post](@/actor-model.md), I will follow up with a summary of related papers Hewitt, C. (2010)[^1] and Agha, G. (1986)[^2], along with implications on how the actor model should be adapted for operating ML models.
 
 # References
 
