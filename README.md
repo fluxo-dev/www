@@ -1,10 +1,12 @@
 <p align="center">
   <img src="/static/fluxo-banner.webp" width="300px" alt="" />
+</p>
 
 ---
 
 <p align="center">
   public website and blog
+</p>
 
 ---
 
